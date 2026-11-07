@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "settings",
+  "description": "Scrawl's local settings window",
+  "windows": ["settings"],
+  "permissions": ["core:default"]
+}

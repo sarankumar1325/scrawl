@@ -1,0 +1,40 @@
+name: Build desktop installers
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-15
+            bundle: dmg
+            name: Scrawl-macOS-Apple-Silicon.dmg
+          - os: macos-15-intel
+            bundle: dmg
+            name: Scrawl-macOS-Intel.dmg
+          - os: windows-2022
+            bundle: nsis
+            name: Scrawl-Windows-x64-setup.exe
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run desktop:build -- --bundles ${{ matrix.bundle }}
+      - run: npm run desktop:smoke
+      - name: Collect installer
+        shell: bash
+        run: |
+          python -c "import glob,shutil,sys; files=glob.glob('src-tauri/target/release/bundle/**/*.${{ matrix.bundle == 'dmg' && 'dmg' || 'exe' }}',recursive=True); print(files); assert len(files)==1, files; shutil.copyfile(files[0], '${{ matrix.name }}')"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.name }}
+          path: ${{ matrix.name }}
+          if-no-files-found: error
