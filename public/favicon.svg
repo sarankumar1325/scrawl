@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Scrawl">
+  <rect width="512" height="512" rx="114" fill="#1c1c22"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- a loose hand-drawn S: your stroke in white... -->
+    <path d="M374 148 C332 92 212 92 174 154 C140 212 200 248 264 264 C334 282 374 318 342 374" stroke="#ffffff" stroke-width="44"/>
+    <!-- ...and the tail your agent adds, in red -->
+    <path d="M342 374 C306 432 190 428 138 366" stroke="#ff5a5f" stroke-width="44"/>
+  </g>
+</svg>

@@ -1,0 +1,27 @@
+:root { color-scheme: light dark; font: 15px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #faf9f7; color: #24242b; }
+main { max-width: 700px; margin: auto; padding: 30px; }
+h1 { font-size: 24px; margin: 0; } h2 { font-size: 17px; margin: 0; }
+header p { color: #5d5d66; margin: 4px 0 28px; }
+label { display: block; margin: 20px 0 7px; font-weight: 650; }
+input { width: 100%; padding: 10px 12px; background: white; color: inherit; border: 1px solid #aaaab1; border-radius: 8px; font: inherit; }
+input[type=number] { max-width: 150px; }
+.hint { color: #5d5d66; font-size: 13px; margin: 7px 0 0; }
+button { cursor: pointer; border: 0; border-radius: 8px; padding: 10px 16px; background: #c93640; color: white; font: inherit; font-weight: 600; }
+button:focus-visible, input:focus-visible, pre:focus-visible { outline: 3px solid #e5484d; outline-offset: 2px; }
+form > button { margin-top: 22px; }
+button.secondary { background: #ecebee; color: #24242b; padding: 6px 12px; }
+.status { min-height: 1.5em; color: #a6232d; }
+section { border-top: 1px solid #dedee1; margin-top: 26px; padding-top: 22px; }
+.section-title { display: flex; align-items: center; justify-content: space-between; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 220px; overflow: auto; padding: 14px; border-radius: 8px; background: #efeff1; font-size: 12px; }
+@media (prefers-color-scheme: dark) {
+  body { background: #1e1e23; color: #f2f2f3; }
+  header p, .hint { color: #c0c0c6; }
+  input { background: #303036; border-color: #777; }
+  pre { background: #303036; }
+  button.secondary { background: #404047; color: white; }
+  .status { color: #ff8c90; }
+  section { border-color: #505057; }
+}

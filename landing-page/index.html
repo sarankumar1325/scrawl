@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scrawl for Mac</title>
+  <meta name="description" content="Scrawl is a whiteboard for your Mac that your AI agent can draw on. Boards in folders as plain files, and an MCP server so Claude Code and Cursor can draw on them. $29, one payment.">
+  <meta property="og:title" content="Scrawl for Mac">
+  <meta property="og:description" content="A whiteboard your agent can draw on. $29 once.">
+  <meta property="og:image" content="assets/boards-light.png">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f7f7f8">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=21">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="#top" aria-label="Scrawl, home">
+        <img src="assets/logo.svg" alt="" width="28" height="28">
+        <span>Scrawl</span>
+      </a>
+      <nav aria-label="Sections">
+        <ul class="nav__links">
+          <li><a href="#agents">How it works</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--small" href="#pricing" data-buy>Buy for $29</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero: the promise, then the proof (the real app, with an agent prompt typing into it) -->
+    <section class="hero" id="top">
+      <canvas class="dot-field" aria-hidden="true"></canvas>
+      <div class="wrap hero__copy">
+        <h1 class="hero__title">
+          <span class="inked inked--under">Sketch<svg viewBox="0 0 200 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M4 15 C 30 8, 52 19, 80 13 S 128 6, 150 12 S 182 17, 196 9"/></svg></span>
+          it on your Mac.<br>Pay for it
+          <span class="inked inked--ring">once<svg viewBox="0 0 220 130" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M168 20 C120 2, 44 8, 18 44 C-2 74, 40 118, 112 116 C184 114, 214 76, 200 42 C190 18, 150 8, 116 12"/></svg></span>.
+        </h1>
+        <p class="hero__lede">
+          A whiteboard your AI agent can draw on. Ask Claude Code or Cursor for a diagram
+          and watch it appear on your board, saved as a plain file on your Mac.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--star" href="#pricing" data-buy><span>Buy Scrawl for $29</span></a>
+          <a class="btn btn--ghost" href="#agents">Watch an agent draw</a>
+        </div>
+        <ul class="trust" aria-label="What you get">
+          <li>One payment, no subscription</li>
+          <li>No account</li>
+          <li>Boards are plain <code>.excalidraw</code> files</li>
+        </ul>
+      </div>
+
+      <div class="wrap wrap--wide hero__stage">
+        <figure class="window window--hero tilt">
+          <div class="window__bar" aria-hidden="true">
+            <span class="lights"><i></i><i></i><i></i></span>
+            <span class="window__title">Scrawl</span>
+            <span class="status"><i></i>MCP Live on :3779</span>
+          </div>
+          <div class="markup">
+            <!-- The pen annotations are positioned for this screenshot. -->
+            <img src="assets/boards-light.png" width="1600" height="955"
+                 alt="Scrawl window: a URL shortener system design on the canvas, with a Boards sidebar listing folders such as Architecture, Ideas and Interview prep.">
+            <svg class="pen" viewBox="0 0 1000 597" aria-hidden="true" focusable="false">
+              <g style="--d: .45s">
+                <path d="M612 70 Q604 52 618 36" pathLength="1"/>
+                <path d="M610.5 46 L618 36 M626 45 L618 36" pathLength="1" class="pen__head"/>
+              </g>
+              <g style="--d: .95s">
+                <path d="M862 218 Q858 200 878 190" pathLength="1"/>
+                <path d="M866.5 189.5 L878 190 M872 200 L878 190" pathLength="1" class="pen__head"/>
+              </g>
+            </svg>
+            <p class="note" style="--x: 50%; --y: 12%; --d: .25s">autosaves to a plain file</p>
+            <p class="note" style="--x: 75.5%; --y: 37%; --d: .75s">folders, like Finder</p>
+          </div>
+        </figure>
+
+        <div class="term" role="img" aria-label="Terminal: Claude Code is asked to draw a URL shortener architecture, and calls Scrawl's create_board and add_elements tools.">
+          <div class="term__bar" aria-hidden="true">
+            <span class="lights"><i></i><i></i><i></i></span>
+            <span>claude — ~/code/shortener</span>
+          </div>
+          <div class="term__body" aria-hidden="true">
+            <p class="term__line"><span class="term__prompt">&gt;</span> <span class="term__typed" data-type="draw our URL shortener architecture on the scrawl board">draw our URL shortener architecture on the scrawl board</span><span class="caret"></span></p>
+            <p class="term__out" data-step>⏺ scrawl.create_board <span>"Architecture/URL shortener"</span></p>
+            <p class="term__out" data-step>⏺ scrawl.add_elements <span>3 zones · 12 services · 12 arrows</span></p>
+            <p class="term__out term__ok" data-step>✓ Done. It's on your board.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap works">
+        <p class="works__label">Works with any MCP client, including</p>
+        <ul class="works__list">
+          <li>Claude Code</li>
+          <li>Cursor</li>
+          <li>VS Code</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- What people ask for -->
+    <section class="prompts" aria-label="Things people ask their agent to draw">
+      <div class="marquee" data-velocity>
+        <ul class="marquee__track">
+          <li>draw our checkout flow</li>
+          <li>sketch the AWS image pipeline</li>
+          <li>map the login sequence</li>
+          <li>add a Redis cache to the read path</li>
+          <li>turn this schema into an ER diagram</li>
+          <li>show how failed jobs get retried</li>
+          <li>label every arrow with its protocol</li>
+          <li>redraw it with the new payments service</li>
+        </ul>
+      </div>
+      <div class="marquee" data-velocity data-direction="right" aria-hidden="true">
+        <ul class="marquee__track">
+          <li>diagram the CI pipeline</li>
+          <li>sketch our microservices and who calls whom</li>
+          <li>move the auth service into the edge zone</li>
+          <li>colour every database teal</li>
+          <li>draw the onboarding flow as boxes and arrows</li>
+          <li>add a dead-letter queue</li>
+          <li>put this on a new board in Interview prep</li>
+          <li>use the AWS icons from my library</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- How it works: a real sequence, so the steps are numbered -->
+    <section class="section" id="agents" aria-labelledby="agents-title">
+      <div class="wrap split split--sticky">
+        <div class="split__text">
+          <p class="eyebrow">MCP built in</p>
+          <h2 id="agents-title">
+            Ask your agent for a
+            <span class="rotator" data-words="checkout flow.|system design.|sequence diagram.|AWS architecture.|data model."><span class="rotator__sizer" aria-hidden="true">sequence diagram.</span><span>checkout flow.</span></span>
+            Watch it appear.
+          </h2>
+          <p>
+            Scrawl runs an MCP server on your Mac. Point Claude Code, Cursor or VS Code at it,
+            and the board you have open updates live as the agent draws. When it adds something
+            off screen, the view follows.
+          </p>
+
+          <ol class="steps">
+            <li>
+              <h3>Open Scrawl</h3>
+              <p>The drawing server starts with the app and stops when you quit.</p>
+            </li>
+            <li>
+              <h3>Connect your agent once</h3>
+              <div class="cmd">
+                <code id="mcp-cmd">claude mcp add --transport http scrawl http://localhost:3779/mcp</code>
+                <button class="cmd__copy" type="button" data-copy="#mcp-cmd">Copy</button>
+              </div>
+              <p class="fine">For Cursor or any other client, press <kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd> in Scrawl to copy the server URL.</p>
+            </li>
+            <li>
+              <h3>Ask for a diagram</h3>
+              <p>Then ask for changes: add a cache, recolour a box, move a service. It edits the same board.</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="proof">
+          <p class="proof__note">Real recording, not a mockup</p>
+          <svg class="proof__arrow" viewBox="0 0 80 60" aria-hidden="true" focusable="false">
+            <path pathLength="1" d="M70 6 C 58 8, 36 14, 22 40"/>
+            <path pathLength="1" class="pen__head" d="M18 28 L22 40 M33 36 L22 40"/>
+          </svg>
+          <figure class="window tilt">
+            <div class="window__bar" aria-hidden="true">
+              <span class="lights"><i></i><i></i><i></i></span>
+              <span class="window__title">Architecture / Checkout flow</span>
+            </div>
+            <img src="assets/agent-live.gif" width="1080" height="645" loading="lazy"
+                 alt="Screen recording: an agent draws a checkout flow on an open board, then adds a cache and recolours a box.">
+          </figure>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <p class="tools__intro"><strong>What your agent gets:</strong> eight tools that read and change your boards, plus a drawing guide that teaches it the format.</p>
+        <dl class="tools">
+          <div><dt>Read</dt><dd><code>list_boards</code> <code>read_board</code></dd></div>
+          <div><dt>Draw</dt><dd><code>create_board</code> <code>add_elements</code></dd></div>
+          <div><dt>Edit</dt><dd><code>update_elements</code> <code>delete_elements</code></dd></div>
+          <div><dt>Organize</dt><dd><code>move_board</code> <code>search_library</code></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Features as a bento of real behaviours -->
+    <section class="section section--tint" id="features" aria-labelledby="features-title">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="eyebrow">Plain files</p>
+          <h2 id="features-title">Your boards are files you already know how to keep.</h2>
+        </div>
+
+        <div class="bento">
+          <article class="card card--tree">
+            <h3>A folder on your Mac</h3>
+            <p>Every board saves half a second after you stop drawing, as an open <code>.excalidraw</code> file. Nothing lives in browser storage, and there is nothing to export.</p>
+            <div class="tree" role="img" aria-label="Folder layout: Scrawl in Documents holds a boards folder with nested board files, plus history, trash and your library file.">
+              <p class="tree__root">~/Documents/Scrawl/</p>
+              <ul>
+                <li class="dir">boards/
+                  <ul>
+                    <li class="dir">Architecture/
+                      <ul>
+                        <li class="file">AWS pipeline.excalidraw</li>
+                        <li class="file">Checkout flow.excalidraw</li>
+                        <li class="file">URL shortener.excalidraw</li>
+                      </ul>
+                    </li>
+                    <li class="file">Scratch.excalidraw</li>
+                  </ul>
+                </li>
+                <li class="dir">history/ <span class="tree__note">earlier versions</span></li>
+                <li class="dir">trash/ <span class="tree__note">deleted boards</span></li>
+                <li class="file">library.excalidrawlib</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>You and your agent, one board</h3>
+            <p>Two windows, or you and an agent, can edit the same board. Changes merge per element, so a save never drops your work.</p>
+            <div class="art art--cursors" aria-hidden="true">
+              <span class="cursor cursor--you">you</span>
+              <span class="cursor cursor--agent">claude</span>
+              <span class="art__box">Orders API</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Nothing gone by accident</h3>
+            <p>Deleted boards go to <code>trash/</code>. Earlier versions are kept in <code>history/</code>.</p>
+            <ol class="art art--history" aria-hidden="true">
+              <li><span>Checkout flow</span><span>now</span></li>
+              <li><span>Checkout flow</span><span>12 min ago</span></li>
+              <li><span>Checkout flow</span><span>yesterday</span></li>
+            </ol>
+          </article>
+
+          <article class="card">
+            <h3>Git, iCloud, Time Machine</h3>
+            <p>Keep boards in git, sync them with iCloud Drive, or let Time Machine back them up. They're just files.</p>
+            <p class="art art--shell" aria-hidden="true"><span>$</span> git commit -m "checkout v2"</p>
+          </article>
+
+          <article class="card">
+            <h3>Your shape library</h3>
+            <p>Icon packs you add are saved next to your boards, and agents can search them to place real icons.</p>
+            <ul class="art art--chips" aria-hidden="true">
+              <li>Lambda</li><li>S3 bucket</li><li>Queue</li><li>Users</li><li>API Gateway</li>
+            </ul>
+          </article>
+
+          <article class="card card--wide">
+            <h3>A Mac app, not a browser tab</h3>
+            <p>Its own window, Dock icon, menus and shortcuts. Choose where boards are saved, and which port to use, in Preferences.</p>
+            <ul class="keys">
+              <li><span class="keys__combo"><kbd>⌘</kbd><kbd>N</kbd></span><span>New board</span></li>
+              <li><span class="keys__combo"><kbd>⇧</kbd><kbd>⌘</kbd><kbd>O</kbd></span><span>Reveal in Finder</span></li>
+              <li><span class="keys__combo"><kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd></span><span>Copy MCP URL</span></li>
+              <li><span class="keys__combo"><kbd>⌘</kbd><kbd>R</kbd></span><span>Restart server</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="section" id="compare" aria-labelledby="compare-title">
+      <div class="wrap compare">
+        <div class="section__head">
+          <p class="eyebrow">Why a Mac app</p>
+          <h2 id="compare-title">Keep the whiteboard. Drop the subscription.</h2>
+        </div>
+        <div class="compare__table" role="table" aria-label="Scrawl compared with a typical online whiteboard">
+          <div class="compare__row compare__row--head" role="row">
+            <span role="columnheader"></span>
+            <span role="columnheader" class="is-us"><img src="assets/logo.svg" alt="" width="20" height="20"> Scrawl</span>
+            <span role="columnheader">Typical online whiteboard</span>
+          </div>
+          <div class="compare__row" role="row"><span role="rowheader">Price</span><span role="cell" class="is-us"><i class="tick" aria-hidden="true"></i>$29 once</span><span role="cell"><i class="cross" aria-hidden="true"></i>Monthly, per seat</span></div>
+          <div class="compare__row" role="row"><span role="rowheader">Account</span><span role="cell" class="is-us"><i class="tick" aria-hidden="true"></i>None</span><span role="cell"><i class="cross" aria-hidden="true"></i>Required</span></div>
+          <div class="compare__row" role="row"><span role="rowheader">Where boards live</span><span role="cell" class="is-us"><i class="tick" aria-hidden="true"></i>A folder on your Mac</span><span role="cell"><i class="cross" aria-hidden="true"></i>The vendor's servers</span></div>
+          <div class="compare__row" role="row"><span role="rowheader">Your AI agent draws</span><span role="cell" class="is-us"><i class="tick" aria-hidden="true"></i>Built in, over MCP</span><span role="cell"><i class="cross" aria-hidden="true"></i>Rarely</span></div>
+          <div class="compare__row" role="row"><span role="rowheader">Works offline</span><span role="cell" class="is-us"><i class="tick" aria-hidden="true"></i>Yes</span><span role="cell"><i class="cross" aria-hidden="true"></i>Mostly not</span></div>
+          <div class="compare__row" role="row"><span role="rowheader">File format</span><span role="cell" class="is-us"><i class="tick" aria-hidden="true"></i>Open <code>.excalidraw</code></span><span role="cell"><i class="cross" aria-hidden="true"></i>Proprietary, export only</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section section--tint" id="pricing" aria-labelledby="pricing-title">
+      <div class="wrap pricing">
+        <div class="section__head section__head--center">
+          <p class="eyebrow">Pricing</p>
+          <h2 id="pricing-title">One price. Yours for good.</h2>
+        </div>
+
+        <div class="pricing__body">
+        <div class="ticket">
+          <div class="ticket__top">
+            <p class="ticket__name">Scrawl lifetime license</p>
+            <div class="price">
+              <span class="price__amount"><span class="price__cur">$</span><span data-count-to="29">29</span><svg class="price__ring" viewBox="0 0 220 130" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                <path pathLength="1" d="M168 20 C120 2, 44 8, 18 44 C-2 74, 40 118, 112 116 C184 114, 214 76, 200 42 C190 18, 150 8, 116 12"/>
+              </svg></span>
+              <span class="price__note">once, not per month</span>
+            </div>
+          </div>
+          <ul class="ticket__list">
+            <li>The full app, for as long as you use it</li>
+            <li>Unlimited boards and folders</li>
+            <li>MCP server for Claude Code, Cursor and VS Code</li>
+            <li>Boards stay on your Mac as plain files</li>
+            <li>No account, no subscription</li>
+          </ul>
+          <a class="btn btn--block btn--star" href="#pricing" data-buy data-checkout><span>Buy Scrawl for $29</span></a>
+          <p class="fine fine--center">Requires macOS 14 Sonoma or later and Node.js 22 or newer.</p>
+        </div>
+
+        <ul class="assure">
+          <li>
+            <h3>No account, ever</h3>
+            <p>There is nothing to sign up for and nothing to log in to.</p>
+          </li>
+          <li>
+            <h3>Never locked in</h3>
+            <p>Boards are open <code>.excalidraw</code> files that other whiteboard editors can open.</p>
+          </li>
+          <li>
+            <h3>Your boards stay yours</h3>
+            <p>They live in a folder on your Mac and go nowhere unless you sync them.</p>
+          </li>
+          <li>
+            <h3>The license doesn't expire</h3>
+            <p>Pay once and keep using it. <a href="#faq">Read the FAQ</a> if you have questions.</p>
+          </li>
+        </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="wrap faq">
+        <div class="faq__head">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title">Questions</h2>
+          <p>Everything worth knowing before you pay $29. Still deciding? <a href="#compare">See how Scrawl compares</a>.</p>
+        </div>
+        <div class="faq__list">
+        <details>
+          <summary>Is this a subscription?</summary>
+          <p>No. You pay $29 once, and the license doesn't expire.</p>
+        </details>
+        <details>
+          <summary>Which AI tools can draw on my boards?</summary>
+          <p>Any MCP client on the same Mac or private network, including Claude Code, Cursor and VS Code. Web-based connectors that run in a vendor's cloud can't reach a server on your Mac.</p>
+        </details>
+        <details>
+          <summary>Does it work offline?</summary>
+          <p>Yes. Scrawl and its drawing server run on your Mac, and your boards are files on your disk.</p>
+        </details>
+        <details>
+          <summary>What do I need to run it?</summary>
+          <p>A Mac on macOS 14 Sonoma or later, and Node.js 22 or newer. Scrawl finds Node on its own; you can point it somewhere else in Preferences.</p>
+        </details>
+        <details>
+          <summary>Where are my boards saved?</summary>
+          <p>In <code>~/Documents/Scrawl</code>. You can pick another folder in Preferences, or press <kbd>⇧</kbd><kbd>⌘</kbd><kbd>O</kbd> to open it in Finder.</p>
+        </details>
+        <details>
+          <summary>Can I open my boards without Scrawl?</summary>
+          <p>Yes. Each board is a standard <code>.excalidraw</code> file, an open format that other whiteboard editors can open. Nothing is locked in.</p>
+        </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing: the blackboard -->
+    <section class="final" id="buy" aria-labelledby="final-title">
+      <canvas class="dot-field dot-field--dark" aria-hidden="true"></canvas>
+      <div class="wrap final__inner">
+        <h2 id="final-title">Hand your agent <span class="final__pen inked inked--under">the pen.<svg viewBox="0 0 200 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M4 13 C 34 18, 60 7, 92 12 S 140 19, 168 10 S 188 8, 196 13"/></svg></span></h2>
+        <p>Scrawl is $29, once. Your boards stay on your Mac.</p>
+        <a class="btn btn--light btn--star" href="#pricing" data-buy><span>Buy Scrawl for $29</span></a>
+        <p class="fine">Requires macOS 14 Sonoma or later and Node.js 22 or newer.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div class="footer__brand">
+        <a class="brand" href="#top" aria-label="Scrawl, back to top">
+          <img src="assets/logo.svg" alt="" width="28" height="28">
+          <span>Scrawl</span>
+        </a>
+        <p>Sketch it on your Mac. Pay for it once.</p>
+      </div>
+      <nav class="footer__col" aria-label="Footer">
+        <h3>Product</h3>
+        <ul>
+          <li><a href="#agents">How it works</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="footer__col">
+        <h3>Requirements</h3>
+        <ul>
+          <li>macOS 14 Sonoma or later</li>
+          <li>Node.js 22 or newer</li>
+          <li>Any MCP client, for agent drawing</li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap footer__legal">
+      <p>Scrawl includes open-source software under the MIT license. It is an independent product and is not affiliated with or endorsed by the authors of that software.</p>
+      <p>$29 once · No account · Your boards stay on your Mac</p>
+    </div>
+  </footer>
+
+  <a class="sticky-buy" href="#pricing" data-buy inert>
+    <img src="assets/logo.svg" alt="" width="20" height="20"> Buy Scrawl for $29
+  </a>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <script src="script.js?v=20"></script>
+</body>
+</html>

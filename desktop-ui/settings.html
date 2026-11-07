@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scrawl Settings</title>
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+  <main>
+    <header><h1>Settings and logs</h1><p>Manage Scrawl's local server and board storage.</p></header>
+    <form id="settings-form">
+      <label for="directory">Board storage folder</label>
+      <input id="directory" name="directory" type="text" required autocomplete="off" spellcheck="false">
+      <p class="hint">Enter a full folder path. Changing it does not move your existing boards; copy them separately before restarting.</p>
+      <label for="port">Server port</label>
+      <input id="port" name="port" type="number" min="1024" max="65535" required>
+      <p class="hint">The MCP URL is <code id="endpoint"></code>. Change this if the port is in use.</p>
+      <button type="submit">Save settings</button>
+      <button type="button" class="secondary" id="restart">Restart Scrawl</button>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </form>
+    <section aria-labelledby="logs-title">
+      <div class="section-title"><h2 id="logs-title">Server log</h2><button type="button" class="secondary" id="refresh-log">Refresh</button></div>
+      <p class="hint">The log is reset each time Scrawl starts.</p>
+      <pre id="log" tabindex="0">Loading…</pre>
+    </section>
+  </main>
+  <script src="settings.js"></script>
+</body>
+</html>
