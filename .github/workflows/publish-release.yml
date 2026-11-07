@@ -1,0 +1,34 @@
+name: Prepare first release
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: Successful installer build run ID
+        required: true
+        type: string
+permissions:
+  actions: read
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ inputs.run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: installers
+          merge-multiple: true
+      - name: Verify installers and prepare draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TARGET: ${{ github.sha }}
+        run: |
+          set -eu
+          test -s installers/Scrawl-macOS-Apple-Silicon.dmg
+          test -s installers/Scrawl-macOS-Intel.dmg
+          test -s installers/Scrawl-Windows-x64-setup.exe
+          file installers/*
+          sha256sum installers/* > installers/SHA256SUMS.txt
+          gh release create v0.1.5 --draft --target "$RELEASE_TARGET" --title 'Scrawl 0.1.5' --notes 'First desktop release. Choose Apple silicon or Intel for macOS, or x64 for Windows. These initial installers are unsigned and macOS is not notarized, so operating-system security warnings may appear. The application includes its Node.js runtime.' installers/*
