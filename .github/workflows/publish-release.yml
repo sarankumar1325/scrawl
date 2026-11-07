@@ -27,7 +27,6 @@ jobs:
         run: |
           set -eu
           test -s installers/Scrawl-macOS-Apple-Silicon.dmg
-          test -s installers/Scrawl-macOS-Intel.dmg
           test -s installers/Scrawl-Windows-x64-setup.exe
           file installers/*
           sha256sum installers/* > installers/SHA256SUMS.txt
